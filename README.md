@@ -1,1 +1,1 @@
-Install:1. Download Everything and Everything command from http://www.voidtools.com/2. set system PATH to es (Everything Command) path
+## Install:+ Download Everything and Everything command from http://www.voidtools.com/+ Set es.exe are present in the system path. This can be verified by running.	 `es --help`+ Sublime2 should run as administrator if in windows7	 
