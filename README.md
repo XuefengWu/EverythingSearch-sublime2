@@ -1,0 +1,1 @@
+Install:1. Download Everything and Everything command from http://www.voidtools.com/2. set system PATH to es (Everything Command) path
