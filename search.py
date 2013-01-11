@@ -1,4 +1,4 @@
-import os
+import os,sys
 import sublime, sublime_plugin
 
 view_prename = "search files for:"
@@ -44,6 +44,6 @@ class EverythingSearchCommand(sublime_plugin.WindowCommand):
 			count += 1
 
 		result += "\n" + str(count) +" result"
-		view.insert(edit, 0, result)
+		view.insert(edit, 0, result.decode(sys.getdefaultencoding()))
 		view.end_edit(edit)
 
