@@ -39,11 +39,19 @@ class EverythingSearchCommand(sublime_plugin.WindowCommand):
 		edit = view.begin_edit()  
 		result = ""
 		count = 0
-		for l in f.readlines():     		
-			result += l 		
+		for l in f.readlines():     					
+			result += self.decodeText(l)
 			count += 1
 
 		result += "\n" + str(count) +" result"
-		view.insert(edit, 0, result.decode('gbk'))
+		view.insert(edit, 0, result)
 		view.end_edit(edit)
 
+
+	def decodeText(self, text):
+		result = ""
+		try:
+			result = text.decode('gbk')
+		except:
+			result = "Error Codec\n"
+		return result
