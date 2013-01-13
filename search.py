@@ -1,4 +1,4 @@
-import os,sys
+import os
 import sublime, sublime_plugin
 
 view_prename = "search files for:"
@@ -35,15 +35,15 @@ class EverythingSearchCommand(sublime_plugin.WindowCommand):
 	def on_done(self, text):
 		view = self.window.new_file()
 		view.set_name(view_prename+text)
-		f=os.popen("es -n 100 -r " + text)					
+		f=os.popen("es -n 100 -r " + text.encode('gbk'))					
 		edit = view.begin_edit()  
 		result = ""
 		count = 0
 		for l in f.readlines():     		
-			result += l			
+			result += l 		
 			count += 1
 
 		result += "\n" + str(count) +" result"
-		view.insert(edit, 0, result.decode(sys.getdefaultencoding()))
+		view.insert(edit, 0, result.decode('gbk'))
 		view.end_edit(edit)
 
